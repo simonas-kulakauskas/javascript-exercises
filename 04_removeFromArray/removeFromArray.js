@@ -1,4 +1,5 @@
 const removeFromArray = function () {
+
     // Setting up the variables and returning if none were given.
     let array = arguments[0];
     let args;
@@ -18,6 +19,19 @@ const removeFromArray = function () {
     } else if (checkIfAnyArgs().length > 0) {
         args = checkIfAnyArgs();
     }
+
+    // Setting up Mechanism to actually do the main deleting part
+
+    const removeElementFromArray = (array, elementIndex) => { // To remove element from array and send back updated array.
+        array.splice(elementIndex, 1);
+        return array;
+    }
+
+    const findIndexOfElementInArray = (array, element) => { // To find index of all element instances to be removed in array.
+
+    }
+
+
 
 
 };

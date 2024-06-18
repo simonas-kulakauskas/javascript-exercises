@@ -53,11 +53,29 @@ const removeFromArray = function () {
     }
 
     const findAllRelevantIndex = (array, args) => { // *** Should be able to find all relevant indexs (using findIndexOfElementInArray) and tabulate them all to pass later.
-
+        // iterate through all 'args', push them to findIndex, make a new array with all values, return array
+        let elementsToRemove = [];
+        for (let i = 0; i < args.length; i++) {
+            let foo = findIndexOfElementInArray(array, args[i]);
+            if (foo.length > 0) {
+                elementsToRemove = elementsToRemove.concat(foo)
+            }
+        }
+        if (elementsToRemove.length > 0) {
+            return (elementsToRemove);
+        } else { return null; }
     }
 
 
-    console.log(findIndexOfElementInArray(array, args[0]));
+    let elementIndex = findAllRelevantIndex(array, args);
+    let currentArray = array;
+
+    for (i = 0; i < elementIndex.length; i++) {
+        removeElementFromArray(currentArray, elementIndex[i] - i)
+    }
+    return currentArray;
+
+
 
 
 
@@ -65,7 +83,7 @@ const removeFromArray = function () {
 
 };
 
-console.log(removeFromArray([1, 2, 3, 4, 1], 1))
+console.log(removeFromArray([1, 2, 3, 4, 1, 5, 1, 2, 3, 2, 2, "balls",], 1, 2, 3, "balls"))
 
 
 

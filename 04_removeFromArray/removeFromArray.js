@@ -28,9 +28,21 @@ const removeFromArray = function () {
     }
 
     const findIndexOfElementInArray = (array, element) => { // To find index of all element instances to be removed in array.
-
+        let elementIndex = [];
+        for (i = 0; i < array.length; i++) {
+            if (array[i] === element) {
+                elementIndex.push(i);
+            }
+        }
+        if (elementIndex.length <= 0) {
+            console.log(`No elements of array '${array.toString()}' were found to match ${element}! Returning Null...`);
+            return null;
+        } else if (elementIndex.length >= 1) {
+            return elementIndex;
+        }
     }
 
+    console.log(findIndexOfElementInArray([1, 2, 3, 4], 1))
 
 
 

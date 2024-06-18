@@ -1,32 +1,28 @@
-const removeFromArray = function (array) {
+const removeFromArray = function () {
+    // Setting up the variables and returning if none were given.
+    let array = arguments[0];
+    let args;
 
-    const seperateArguments = () => { // Get all arguments given (apart from 'array') and make an array of them.
-        let itemsToRemove = [];
-        for (i = 1; i < arguments.length; i++) {
-            itemsToRemove.push(arguments[i]);
+    const checkIfAnyArgs = () => { // Creates an array instance from arguments, cuts off first result (array to be deleted from)
+        let args = Array.from(arguments).slice(1);
+        if (args.length <= 0) {
+            console.log("No arguments were sent!");
+            return null;
         }
-        return (itemsToRemove);
+        else { return args; }
     }
 
-    // seperateArguments fetches all the arguments supplied apart from first one (array).
 
-
-    for (i = 0; i < array.length; i++) {
-        console.log(array[i])
-        for (j = 0; j < seperateArguments().length; j++) {
-            if (array[i] === seperateArguments()[j]) {
-                console.log(`Array's ${array[i]} and Argument's ${seperateArguments()[j]} match!`)
-            } else {
-                console.log("no match")
-            }
-        }
+    if (checkIfAnyArgs() === null) { // Making sure that one or more arguments was sent, send it back if not, continue if they were.
+        return (array);
+    } else if (checkIfAnyArgs().length > 0) {
+        args = checkIfAnyArgs();
     }
-
 
 
 };
 
-removeFromArray([1, 2, 3, 4], 1, 2, 3, 4, 5, "balls")
+console.log(removeFromArray([1, 2, 3, 4], 1))
 
 
 

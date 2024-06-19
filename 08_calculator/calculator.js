@@ -28,8 +28,14 @@ const power = function (num, power) {
   return Math.pow(num, power);
 };
 
-const factorial = function () {
+const factorial = function (num) {
+  let total = 1;
 
+  for (i = num; i > 0; i--) {
+    total = total * i
+  }
+
+  return total;
 };
 
 // Do not edit below this line
